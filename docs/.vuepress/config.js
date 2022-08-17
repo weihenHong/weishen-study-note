@@ -1,6 +1,8 @@
 module.exports = {
   title: "Vim Study Notes",
   description: "Just playing around",
+  base:'./',  
+  dest: './dist',
   themeConfig: {
     nav: [{ text: "VIM", link: "/VIM/" }],
     // displayAllHeaders: true,

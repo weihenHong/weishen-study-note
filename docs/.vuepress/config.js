@@ -1,7 +1,7 @@
 module.exports = {
   title: "Vim Study Notes",
   description: "Just playing around",
-  base:'./',  
+  base:'/vim-vuepress/',  
   dest: './dist',
   themeConfig: {
     nav: [{ text: "VIM", link: "/VIM/" }],

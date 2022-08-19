@@ -1,4 +1,14 @@
 {
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-a>": false,
+        "<C-x>": false,
+        "<C-b>": false
+    },
+    "vim.easymotion": true,
+    "vim.leader": "<Space>",
+    "vim.sneak": true,
     "vim.normalModeKeyBindings": [
         {
             "before": ["H"],

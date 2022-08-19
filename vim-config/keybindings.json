@@ -1,0 +1,51 @@
+// 将键绑定放在此文件中以覆盖默认值
+[
+    {
+    // window move left
+    "key": "shift+left",
+    "command": "vim.remap",
+    "when": "vim.mode == 'Normal'",
+    "args": {
+      "after": [
+        "<c-w>",
+        "h"
+      ]
+    }
+  },
+  {
+    // window move right
+    "key": "shift+right",
+    "command": "vim.remap",
+    "when": "vim.mode == 'Normal'",
+    "args": {
+      "after": [
+        "<c-w>",
+        "l"
+      ]
+    }
+  },
+  {
+    // window move up
+    "key": "shift+up",
+    "command": "vim.remap",
+    "when": "vim.mode == 'Normal'",
+    "args": {
+      "after": [
+        "<c-w>",
+        "k"
+      ]
+    }
+  },
+  {
+    // window move down
+    "key": "shift+down",
+    "command": "vim.remap",
+    "when": "vim.mode == 'Normal'",
+    "args": {
+      "after": [
+        "<c-w>",
+        "j"
+      ]
+    }
+  }
+]

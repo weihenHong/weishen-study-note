@@ -1,0 +1,3 @@
+Caps Lock > Esc
+
+C + h/j/k/l > 方向键

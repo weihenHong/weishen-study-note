@@ -1,0 +1,8 @@
+"vim.autoSwitchInputMethod.defaultIM": "1033",
+    "vim.autoSwitchInputMethod.obtainIMCmd": "C:/Windows/im-select.exe",
+    "vim.autoSwitchInputMethod.switchIMCmd": "C:/Windows/im-select.exe {im} &&  C:/Windows/im-select.exe 2052",
+    "vim.autoSwitchInputMethod.enable": true
+
+下载英文语言包
+搜狗输入法默认为英文
+下载im-select.exe 将上述配置加到settingJson中

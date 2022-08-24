@@ -231,7 +231,12 @@
                     }
                 }
             ]
-        }
+        },
+        // vim搜索当前光标单词（模仿vscode ctrl+f）
+        {
+      "before": ["<leader>", "f"],
+      "after": ["y", "i", "w", "/", "ctrl+R", "\"", "enter"]
+    }
     ],
     "vim.operatorPendingModeKeyBindingsNonRecursive": [
         {
@@ -259,6 +264,11 @@
             "after": [
                 "s"
             ]
+        },
+        // vim快速搜索选中部分
+        {
+          "before": ["<leader>", "f"],
+          "after": ["y", "/", "ctrl+R", "\"", "enter"]
         }
     ],
 }

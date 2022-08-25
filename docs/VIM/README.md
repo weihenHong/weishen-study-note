@@ -314,7 +314,40 @@ ia 删除当前文本所有 不包含前面和后面空格
   - " + a + yy （修改，但是在vscode中不生效）
 
 ## D18 调用vscode的命令
+
 > 通过commands字段配置成vim的指令
+
 - 格式化文档
 - 重命名
 - 折叠代码
+
+## Vscode01 操作文件
+
+- 切换到files explorer 区域
+- vim shift + ctrl + h
+- vscode ctrl + ; (改键后)
+- 切换到编辑区
+  - vim shift + ctrl + l
+  - vscode ctrl + ' (改键后)
+- 移动光标
+  - jk 上下移动
+  - h 折叠文件夹 在文件上使用则光标移动到当前文件所在文件夹上
+  - l 展开文件夹 在文件上使用则打开文件
+- 创建文件
+  - cmd + n  Vscode 原生
+  - 使用插件 file Utils
+- 创建文件夹
+  - A 在files explorer新建 改键
+  - \<leader> + n + d 在编辑区域直接新建 配置通过vim调用vscode命令
+
+## Vscode02 操作多个vscode窗口
+
+- 打开新的vscode窗口
+  - shift + ctrl + n
+  - shift + command + n （mac）
+- ctrl + r 选择工作区
+- 多个窗口切换
+  - command + ` (mac)
+- 关闭vscode窗口
+  - shift + command + w
+  - shift + ctrl + w

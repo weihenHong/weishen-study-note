@@ -1,15 +1,12 @@
 // 将键绑定放在此文件中以覆盖默认值
 [
-    {
+  {
     // window move left
     "key": "shift+left",
     "command": "vim.remap",
     "when": "vim.mode == 'Normal'",
     "args": {
-      "after": [
-        "<c-w>",
-        "h"
-      ]
+      "after": ["<c-w>", "h"]
     }
   },
   {
@@ -18,10 +15,7 @@
     "command": "vim.remap",
     "when": "vim.mode == 'Normal'",
     "args": {
-      "after": [
-        "<c-w>",
-        "l"
-      ]
+      "after": ["<c-w>", "l"]
     }
   },
   {
@@ -30,10 +24,7 @@
     "command": "vim.remap",
     "when": "vim.mode == 'Normal'",
     "args": {
-      "after": [
-        "<c-w>",
-        "k"
-      ]
+      "after": ["<c-w>", "k"]
     }
   },
   {
@@ -42,10 +33,36 @@
     "command": "vim.remap",
     "when": "vim.mode == 'Normal'",
     "args": {
-      "after": [
-        "<c-w>",
-        "j"
-      ]
+      "after": ["<c-w>", "j"]
     }
+  },
+  {
+    "key": "ctrl+;",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "A",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
   }
 ]

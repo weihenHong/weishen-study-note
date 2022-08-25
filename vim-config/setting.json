@@ -1,274 +1,161 @@
 {
-    "vim.handleKeys": {
-        "<C-c>": false,
-        "<C-v>": false,
-        "<C-a>": false,
-        "<C-x>": false,
-        "<C-b>": false
+  "vim.handleKeys": {
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-a>": false,
+    "<C-x>": false,
+    "<C-b>": false
+  },
+  "vim.easymotion": true,
+  "vim.leader": "<Space>",
+  "vim.sneak": true,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["H"],
+      "after": ["^"]
     },
-    "vim.easymotion": true,
-    "vim.leader": "<Space>",
-    "vim.sneak": true,
-    "vim.normalModeKeyBindings": [
+    {
+      "before": ["L"],
+      "after": ["g", "_"]
+    },
+    {
+      "before": ["J"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"]
+    },
+    // 删除函数
+    {
+      "before": ["<leader>", "d", "f"],
+      "after": ["V", "$", "%", "d"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["ctrl+h"],
+      "after": ["Left"]
+    },
+    {
+      "before": ["ctrl+l"],
+      "after": ["Right"]
+    },
+    {
+      "before": ["ctrl+j"],
+      "after": ["Down"]
+    },
+    {
+      "before": ["ctrl+k"],
+      "after": ["Up"]
+    }
+  ],
+  "vim.operatorPendingModeKeyBindings": [
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["g", "_"]
+    },
+    // 选中函数
+    {
+      "before": ["a", "i"],
+      "after": ["a", "I"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["J"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["K"],
+      "after": ["5", "k"]
+    },
+    // 选中函数
+    {
+      "before": ["a", "i"],
+      "after": ["a", "I"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "n", "f"],
+      "commands": ["explorer.newFile"]
+    },
+
+    {
+      "before": ["<leader>", "n", "d"],
+      "commands": ["explorer.newFolder"]
+    },
+    {
+      "before": ["f"],
+      "after": ["s"]
+    },
+    {
+      "before": ["F"],
+      "after": ["S"]
+    },
+    {
+      "before": ["s"],
+      "after": ["c", "l"]
+    },
+    {
+      "before": ["S"],
+      "after": ["^", "C"]
+    },
+    {
+      "before": ["<leader>", "f", "d"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<leader>", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "["],
+      "commands": [
         {
-            "before": [
-                "H"
-            ],
-            "after": [
-                "^"
-            ]
+          "key": "ctrl+shift+oem_4",
+          "command": "editor.fold",
+          "when": "editorTextFocus && foldingEnabled"
         },
         {
-            "before": [
-                "L"
-            ],
-            "after": [
-                "g",
-                "_"
-            ]
-        },
-        {
-            "before": [
-                "J"
-            ],
-            "after": [
-                "5",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "K"
-            ],
-            "after": [
-                "5",
-                "k"
-            ]
-        },
-        // 删除函数
-        {
-            "before": [
-                "<leader>",
-                "d",
-                "f"
-            ],
-            "after": [
-                "V",
-                "$",
-                "%",
-                "d"
-            ]
+          "command": "vim.remap",
+          "args": {
+            "after": ["$", "%"]
+          }
         }
-    ],
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "ctrl+h"
-            ],
-            "after": [
-                "Left"
-            ]
-        },
-        {
-            "before": [
-                "ctrl+l"
-            ],
-            "after": [
-                "Right"
-            ]
-        },
-        {
-            "before": [
-                "ctrl+j"
-            ],
-            "after": [
-                "Down"
-            ]
-        },
-        {
-            "before": [
-                "ctrl+k"
-            ],
-            "after": [
-                "Up"
-            ]
-        }
-    ],
-    "vim.operatorPendingModeKeyBindings": [
-        {
-            "before": [
-                "H"
-            ],
-            "after": [
-                "^"
-            ]
-        },
-        {
-            "before": [
-                "L"
-            ],
-            "after": [
-                "g",
-                "_"
-            ]
-        },
-        // 选中函数
-        {
-            "before": [
-                "a",
-                "i"
-            ],
-            "after": [
-                "a",
-                "I"
-            ]
-        }
-    ],
-    "vim.visualModeKeyBindings": [
-        {
-            "before": [
-                "J"
-            ],
-            "after": [
-                "5",
-                "j"
-            ]
-        },
-        {
-            "before": [
-                "K"
-            ],
-            "after": [
-                "5",
-                "k"
-            ]
-        },
-        // 选中函数
-        {
-            "before": [
-                "a",
-                "i"
-            ],
-            "after": [
-                "a",
-                "I"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "f"
-            ],
-            "after": [
-                "s"
-            ]
-        },
-        {
-            "before": [
-                "F"
-            ],
-            "after": [
-                "S"
-            ]
-        },
-        {
-            "before": [
-                "s"
-            ],
-            "after": [
-                "c",
-                "l"
-            ]
-        },
-        {
-            "before": [
-                "S"
-            ],
-            "after": [
-                "^",
-                "C"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "f",
-                "d"
-            ],
-            "commands": [
-                "editor.action.formatDocument"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "r",
-                "n"
-            ],
-            "commands": [
-                "editor.action.rename"
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "["
-            ],
-            "commands": [
-                {
-                    "key": "ctrl+shift+oem_4",
-                    "command": "editor.fold",
-                    "when": "editorTextFocus && foldingEnabled"
-                },
-                {
-                    "command": "vim.remap",
-                    "args": {
-                        "after": [
-                            "$",
-                            "%"
-                        ]
-                    }
-                }
-            ]
-        },
-        // vim搜索当前光标单词（模仿vscode ctrl+f）
-        {
+      ]
+    },
+    // vim搜索当前光标单词（模仿vscode ctrl+f）
+    {
       "before": ["<leader>", "f"],
       "after": ["y", "i", "w", "/", "ctrl+R", "\"", "enter"]
     }
-    ],
-    "vim.operatorPendingModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "f"
-            ],
-            "after": [
-                "z"
-            ]
-        },
-        {
-            "before": [
-                "F"
-            ],
-            "after": [
-                "Z"
-            ]
-        }
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "f"
-            ],
-            "after": [
-                "s"
-            ]
-        },
-        // vim快速搜索选中部分
-        {
-          "before": ["<leader>", "f"],
-          "after": ["y", "/", "ctrl+R", "\"", "enter"]
-        }
-    ],
+  ],
+
+  "vim.operatorPendingModeKeyBindingsNonRecursive": [
+    {
+      "before": ["f"],
+      "after": ["z"]
+    },
+    {
+      "before": ["F"],
+      "after": ["Z"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["f"],
+      "after": ["s"]
+    },
+    // vim快速搜索选中部分
+    {
+      "before": ["<leader>", "f"],
+      "after": ["y", "/", "ctrl+R", "\"", "enter"]
+    }
+  ]
 }

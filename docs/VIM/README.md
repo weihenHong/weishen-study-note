@@ -351,3 +351,15 @@ ia 删除当前文本所有 不包含前面和后面空格
 - 关闭vscode窗口
   - shift + command + w
   - shift + ctrl + w
+
+- 全局搜索
+  - shift + ctrl + f 打开搜索栏 (目前只在侧栏聚焦时生效)
+  - ctrl + 上下 移动用f
+
+- 在工作区查找对象、函数
+  - ctrl + t
+- 查看当前文件 大纲 ctrl + shift + o
+- **全局搜索**
+  - shift + ctrl + p
+- 搜索文件
+  - ctrl + p

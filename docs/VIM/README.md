@@ -363,3 +363,17 @@ ia 删除当前文本所有 不包含前面和后面空格
   - shift + ctrl + p
 - 搜索文件
   - ctrl + p
+
+## Vscode04
+
+- 提示
+  - 触发函数的参数提示 command + shift + 空格
+  - 代码提示 command + i
+- 移动行
+- 增加行
+- 删除单词
+  - window下只能用 ctrl + Del 删除后面的单词
+  - mac下使用opt + del 删除前面的单词
+- 跳转到错误处
+  - F8
+- 选择所有出现的当前单词 ctrl + F2  

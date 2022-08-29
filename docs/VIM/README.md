@@ -381,3 +381,18 @@ ia 删除当前文本所有 不包含前面和后面空格
 ## Vscode05 快捷键
 
 > window系统下很多vscode都与改键或者其他快捷键冲突，待完善。
+
+## Vscode06  GIT
+
+- 打开面板
+  - \<leader> + g + g  （vim改键后）
+- stage Change
+  - \<leader> + g + s  （vim改键后）
+- commit
+  - \<leader> + g + c  （vim改键后）
+- diff
+  - \<leader> + g + d + f（vim改键后）
+- unstage Change
+  - \<leader> + g + u  （vim改键后）
+- diacard Change
+  - \<leader> + g + c + l  （vim改键后）

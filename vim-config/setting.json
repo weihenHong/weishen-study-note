@@ -91,6 +91,12 @@
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    // 打开文件切换框
+    {
+      "before": ["<leader>", "tab"],
+      "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"]
+    },
+    // git相关
     {
       "before": ["<Leader>", "g", "c", "l"],
       "commands": ["git.clean"]

@@ -405,3 +405,8 @@ ia 删除当前文本所有 不包含前面和后面空格
   - \<leader> + g + u  （vim改键后）
 - diacard Change
   - \<leader> + g + c + l  （vim改键后）
+
+
+## Vscode07 snippets (代码片段)
+> tab键可以切换位置
+> 提示消失重新展示 command + i

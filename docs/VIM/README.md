@@ -406,7 +406,26 @@ ia 删除当前文本所有 不包含前面和后面空格
 - diacard Change
   - \<leader> + g + c + l  （vim改键后）
 
-
 ## Vscode07 snippets (代码片段)
+
 > tab键可以切换位置
 > 提示消失重新展示 command + i
+
+## Vscode08 重构
+
+> 重构提示
+> ctrl + shift + r
+> command + .
+
+- vscode
+  - Extract Method 选中区域提炼函数
+  - Extract Variable 字符串提炼成变量
+- abracadabra
+  - 内联变量 和提炼变量相反
+  - 字符串转换成模板字符串
+- hocus pocus
+  - 创建变量 为未创建的变量创建变量 （配置leader快捷键）
+  - 创建函数 为未创建的函数创建函数 （配置leader快捷键）
+- javascript booster
+  - function 转化 箭头函数 （互转）
+  - ifelse 转化 ? :

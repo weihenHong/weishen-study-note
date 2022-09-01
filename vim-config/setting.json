@@ -96,7 +96,16 @@
       "before": ["<leader>", "tab"],
       "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"]
     },
+    // 替换当前单词
+    {
+      "before": ["<leader>", "r","w"],
+      "after": ["v","i","w","p"]
+    },
     // git相关
+    {
+      "before": ["<Leader>", "g", "tab"],
+      "commands": ["git.checkout"]
+    },
     {
       "before": ["<Leader>", "g", "c", "l"],
       "commands": ["git.clean"]

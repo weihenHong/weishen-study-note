@@ -429,3 +429,10 @@ ia 删除当前文本所有 不包含前面和后面空格
 - javascript booster
   - function 转化 箭头函数 （互转）
   - ifelse 转化 ? :
+
+## Vscode09 VSpaceCode
+
+> 快捷键插件 （已经配置好很多快捷键，也可以直接使用vim，GitHub仓库有vim版本的配置）
+
+- space + ; 在vim中打开 （改键 settingJson）
+- space 在管理器中打开 （改键 keybinding）

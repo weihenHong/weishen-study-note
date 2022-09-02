@@ -90,6 +90,11 @@
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
+    // vspacecode 插件
+    {
+      "before": ["<Leader>", ";"],
+      "commands": ["vspacecode.space"]
+    },
     // 重构插件
     {
       "before": ["<Leader>", "f", "f"],

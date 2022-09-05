@@ -330,6 +330,7 @@ ia 删除当前文本所有 不包含前面和后面空格
 - 数字 ＋ w/e  行内快速移动单词
 - 用 / ? 查找代替 f 快速查找或划定范围
 - gi 快速回到上一次退出insert模式继续编辑
+
 ## Vscode01 操作文件
 
 - 切换到files explorer 区域
@@ -436,3 +437,18 @@ ia 删除当前文本所有 不包含前面和后面空格
 
 - space + ; 在vim中打开 （改键 settingJson）
 - space 在管理器中打开 （改键 keybinding）
+
+## lazygit 终端git管理工具 （暂时不用）
+
+- 打开
+  - control + `  || cmd + j  （反引号太远，改为ctrl+ ,）
+
+> cmd 只会打开面板，不会跳转终端
+
+- 清空 cmd + k
+- 分屏 cmd + \
+- 分屏切换 cmd + [ ]
+- 关闭 shift + alt + q
+- 新建 shift + alt + n
+- 窗口切换 shift + cmd + [ ]
+- 在vscode中打开终端  shift + cmd + c  （会直接打开当前项目的路径）

@@ -6,7 +6,10 @@
     "command": "vim.remap",
     "when": "vim.mode == 'Normal'",
     "args": {
-      "after": ["<c-w>", "h"]
+      "after": [
+        "<c-w>",
+        "h"
+      ]
     }
   },
   {
@@ -15,7 +18,10 @@
     "command": "vim.remap",
     "when": "vim.mode == 'Normal'",
     "args": {
-      "after": ["<c-w>", "l"]
+      "after": [
+        "<c-w>",
+        "l"
+      ]
     }
   },
   {
@@ -24,7 +30,10 @@
     "command": "vim.remap",
     "when": "vim.mode == 'Normal'",
     "args": {
-      "after": ["<c-w>", "k"]
+      "after": [
+        "<c-w>",
+        "k"
+      ]
     }
   },
   {
@@ -33,7 +42,10 @@
     "command": "vim.remap",
     "when": "vim.mode == 'Normal'",
     "args": {
-      "after": ["<c-w>", "j"]
+      "after": [
+        "<c-w>",
+        "j"
+      ]
     }
   },
   {
@@ -69,5 +81,30 @@
     "key": "space",
     "command": "vspacecode.space",
     "when": "sideBarFocus && !inputFocus && !whickkeyActive"
+  },
+  {
+    "key": "ctrl+,",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  // 分屏切换
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "shift+alt+q",
+    "command": "workbench.action.terminal.kill"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
   }
 ]

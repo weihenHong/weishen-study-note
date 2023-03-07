@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数组和链表、基本的排序 | Vim Study Notes</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/vim-vuepress/assets/css/0.styles.fb095168.css" as="style"><link rel="preload" href="/vim-vuepress/assets/js/app.06a9a5ae.js" as="script"><link rel="preload" href="/vim-vuepress/assets/js/2.733019b2.js" as="script"><link rel="preload" href="/vim-vuepress/assets/js/10.e3a812bc.js" as="script"><link rel="prefetch" href="/vim-vuepress/assets/js/11.9f9e7283.js"><link rel="prefetch" href="/vim-vuepress/assets/js/12.22b415a4.js"><link rel="prefetch" href="/vim-vuepress/assets/js/13.b48a1e5a.js"><link rel="prefetch" href="/vim-vuepress/assets/js/3.7c0fc0d6.js"><link rel="prefetch" href="/vim-vuepress/assets/js/4.d12742be.js"><link rel="prefetch" href="/vim-vuepress/assets/js/5.216cae74.js"><link rel="prefetch" href="/vim-vuepress/assets/js/6.2d0a63f8.js"><link rel="prefetch" href="/vim-vuepress/assets/js/7.d617c30e.js"><link rel="prefetch" href="/vim-vuepress/assets/js/8.93af2a90.js"><link rel="prefetch" href="/vim-vuepress/assets/js/9.0ed3b775.js">
+    <link rel="stylesheet" href="/vim-vuepress/assets/css/0.styles.fb095168.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vim-vuepress/" class="home-link router-link-active"><!----> <span class="site-name">Vim Study Notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vim-vuepress/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/vim-vuepress/VIM/" class="nav-link">
+  VIM
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vim-vuepress/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/vim-vuepress/VIM/" class="nav-link">
+  VIM
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/vim-vuepress/algorithm/D1.html" aria-current="page" class="active sidebar-link">数组和链表、基本的排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vim-vuepress/algorithm/D1.html#数组" class="sidebar-link">数组</a></li><li class="sidebar-sub-header"><a href="/vim-vuepress/algorithm/D1.html#链表" class="sidebar-link">链表</a></li><li class="sidebar-sub-header"><a href="/vim-vuepress/algorithm/D1.html#简单排序" class="sidebar-link">简单排序</a></li></ul></li><li><a href="/vim-vuepress/algorithm/D2.html" class="sidebar-link">快速排序、归并排序</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="数组和链表、基本的排序"><a href="#数组和链表、基本的排序" class="header-anchor">#</a> 数组和链表、基本的排序</h1> <h2 id="数组"><a href="#数组" class="header-anchor">#</a> 数组</h2> <blockquote><p>不做赘述</p></blockquote> <h2 id="链表"><a href="#链表" class="header-anchor">#</a> 链表</h2> <p>链表存储有序的元素集合，每个元素由元素本身和一个指向下一个元素的引用组成。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 链表的js实现</span>
+<span class="token keyword">class</span> <span class="token class-name">linkedList</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 向链表尾部添加元素</span>
+  <span class="token function">append</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> current <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 添加到最后一个</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>index<span class="token operator">++</span> <span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        current <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      current<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 从链表中移除元素（特定位置）</span>
+  <span class="token function">removeAt</span><span class="token punctuation">(</span><span class="token parameter">position</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      current <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">,</span>
+      previous<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;删除的位置不存在&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 移除第一项</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">//</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>index<span class="token operator">++</span> <span class="token operator">&lt;</span> position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        previous <span class="token operator">=</span> current<span class="token punctuation">;</span>
+        current <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// 上一个的指针指向当前的指针</span>
+      previous<span class="token punctuation">.</span>next <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> current<span class="token punctuation">.</span>element<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 向链表某个位置添加元素</span>
+  <span class="token function">insert</span><span class="token punctuation">(</span><span class="token parameter">position<span class="token punctuation">,</span> element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      current <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>head<span class="token punctuation">,</span>
+      previous<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">&gt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;添加的位置不存在&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 添加到第一项</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>position <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      node<span class="token punctuation">.</span>next <span class="token operator">=</span> current<span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>head <span class="token operator">=</span> node<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token comment">//</span>
+      <span class="token keyword">while</span> <span class="token punctuation">(</span>index<span class="token operator">++</span> <span class="token operator">&lt;</span> position<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        previous <span class="token operator">=</span> current<span class="token punctuation">;</span>
+        current <span class="token operator">=</span> current<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment">// 上一个的指针指向当前的指针</span>
+
+      previous<span class="token punctuation">.</span>next <span class="token operator">=</span> node<span class="token punctuation">;</span>
+      node<span class="token punctuation">.</span>next <span class="token operator">=</span> current<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>length<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> current<span class="token punctuation">.</span>element<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Node</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>element <span class="token operator">=</span> element<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="简单排序"><a href="#简单排序" class="header-anchor">#</a> 简单排序</h2> <blockquote><p>循环的边界问题:
+如果要循环到最后一个值，则 i &lt; length
+如果最后一个不需要，则 i &lt; length -1
+以冒泡为例，循环到最后一个数，也就是只剩一个数时，不需要继续循环，所以 i &lt; nums.length - 1
+以选择为例，循环到最后一个数时，已经不需要循环，所以也是 i &lt; nums.length - 1， 而在内部的循环中，由于需要比较所有的数，则 i &lt; length</p></blockquote> <h3 id="冒泡排序"><a href="#冒泡排序" class="header-anchor">#</a> 冒泡排序</h3> <p>遍历将最大的数放到最后，对未排序数据继续重复遍历。</p> <p>时间复杂度： O(n²)</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 遍历将最大的数放到最后，对未排序数据继续重复遍历。</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 此处的循环的i会依次增大， 每次增大1，因为每次下面的循环会将一个最大数排到最后，所以只需要循环一个未排序的数据</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 在这里循环内对整个数组 - i 的大小交换， 这样会在循环结束后将最大的数交换到最后</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> nums<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">swap</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> j<span class="token punctuation">,</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="选择排序"><a href="#选择排序" class="header-anchor">#</a> 选择排序</h3> <p>数组的每次遍历找出最小的，放置到最前，与冒泡相似</p> <p>时间复杂度： O(n²)</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> minIndex <span class="token operator">=</span> i<span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 从i+ 1开始，因为已排序的数据已放置到最前</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> nums<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      minIndex <span class="token operator">=</span> j<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 如果发生改变了，移动数据</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>minIndex <span class="token operator">!==</span> i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">swap</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> i<span class="token punctuation">,</span> minIndex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="插入排序"><a href="#插入排序" class="header-anchor">#</a> 插入排序</h3> <p>插入排序的思路就是从右侧的未排序区域内取出一个数据，然后将它插入到已排序区域内合适的位置</p> <p>时间复杂度： O(n²)</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 第一个默认为已排序，遍历整个数组，</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 通过遍历已排序数组，冒泡插入到正确的位置</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> nums<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">swap</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> j<span class="token punctuation">,</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="希尔排序"><a href="#希尔排序" class="header-anchor">#</a> 希尔排序</h3> <p>首先选择一个步长 h，对数组进行 h 个子序列的插入排序，每个子序列包含的元素下标相差 h，直到 h = 1，此时整个数组已经基本有序；
+接着进行一次步长为 1 的插入排序，此时的插入排序由于之前已经进行了一次步长不为 1 的插入排序，整个数组已经基本有序，因此此次插入排序的效率较高。</p> <p>时间复杂度 O(n(logn)²)</p> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token keyword">var</span> <span class="token function-variable function">sortArray</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> nums<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">let</span> h <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>h<span class="token operator">&lt;</span>len<span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        h <span class="token operator">=</span> <span class="token number">3</span><span class="token operator">*</span>h <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 取出一个合适的初始步长</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>h<span class="token operator">&gt;=</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 直到h为1时停止循环，此时的为一次标准的插入排序</span>
+        <span class="token comment">// 以下可以理解为h不为1的插入排序</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span>h<span class="token punctuation">;</span> i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token comment">//  for(let i=1; i&lt;len; i++)  * 与标准插入排序对比</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j<span class="token operator">=</span>i<span class="token punctuation">;</span> <span class="token punctuation">(</span>j<span class="token operator">&gt;=</span>h<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>nums<span class="token punctuation">[</span>j<span class="token operator">-</span>h<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">-=</span>h <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// for(let j=i;  j&gt;0 &amp;&amp; (nums[j]&lt; nums[j-1]); j-=1  ) { * 与标准插入排序对比</span>
+                <span class="token function">swap</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> j<span class="token punctuation">,</span> j<span class="token operator">-</span>h<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        h <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>h <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment">// 缩小步长</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> nums
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/vim-vuepress/algorithm/D2.html">
+        快速排序、归并排序
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vim-vuepress/assets/js/app.06a9a5ae.js" defer></script><script src="/vim-vuepress/assets/js/2.733019b2.js" defer></script><script src="/vim-vuepress/assets/js/10.e3a812bc.js" defer></script>
+  </body>
+</html>

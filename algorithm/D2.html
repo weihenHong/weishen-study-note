@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>快速排序、归并排序 | Vim Study Notes</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/vim-vuepress/assets/css/0.styles.fb095168.css" as="style"><link rel="preload" href="/vim-vuepress/assets/js/app.06a9a5ae.js" as="script"><link rel="preload" href="/vim-vuepress/assets/js/2.733019b2.js" as="script"><link rel="preload" href="/vim-vuepress/assets/js/11.9f9e7283.js" as="script"><link rel="prefetch" href="/vim-vuepress/assets/js/10.e3a812bc.js"><link rel="prefetch" href="/vim-vuepress/assets/js/12.22b415a4.js"><link rel="prefetch" href="/vim-vuepress/assets/js/13.b48a1e5a.js"><link rel="prefetch" href="/vim-vuepress/assets/js/3.7c0fc0d6.js"><link rel="prefetch" href="/vim-vuepress/assets/js/4.d12742be.js"><link rel="prefetch" href="/vim-vuepress/assets/js/5.216cae74.js"><link rel="prefetch" href="/vim-vuepress/assets/js/6.2d0a63f8.js"><link rel="prefetch" href="/vim-vuepress/assets/js/7.d617c30e.js"><link rel="prefetch" href="/vim-vuepress/assets/js/8.93af2a90.js"><link rel="prefetch" href="/vim-vuepress/assets/js/9.0ed3b775.js">
+    <link rel="stylesheet" href="/vim-vuepress/assets/css/0.styles.fb095168.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vim-vuepress/" class="home-link router-link-active"><!----> <span class="site-name">Vim Study Notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vim-vuepress/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/vim-vuepress/VIM/" class="nav-link">
+  VIM
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vim-vuepress/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/vim-vuepress/VIM/" class="nav-link">
+  VIM
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/vim-vuepress/algorithm/D1.html" class="sidebar-link">数组和链表、基本的排序</a></li><li><a href="/vim-vuepress/algorithm/D2.html" aria-current="page" class="active sidebar-link">快速排序、归并排序</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vim-vuepress/algorithm/D2.html#快速排序" class="sidebar-link">快速排序</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="快速排序、归并排序"><a href="#快速排序、归并排序" class="header-anchor">#</a> 快速排序、归并排序</h1> <h2 id="快速排序"><a href="#快速排序" class="header-anchor">#</a> 快速排序</h2> <p>首先，选取数组的中间值作为基准值，然后把小于基准值的元素放在一个数组中，把大于基准值的元素放在另一个数组中。接下来，对这两个数组递归地进行排序，并将它们与基准值组合起来。最终，得到的数组就是排好序的。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// js实现</span>
+<span class="token keyword">var</span> <span class="token function-variable function">sortArray</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> nums<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> pivotIndex <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>len <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> pivot <span class="token operator">=</span> nums<span class="token punctuation">[</span>pivotIndex<span class="token punctuation">]</span><span class="token punctuation">,</span> less <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> greater <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">===</span> pivotIndex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">continue</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> pivot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        less<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+        greater<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span><span class="token function">sortArray</span> <span class="token punctuation">(</span>less<span class="token punctuation">)</span><span class="token punctuation">,</span> pivot<span class="token punctuation">,</span> <span class="token operator">...</span><span class="token function">sortArray</span><span class="token punctuation">(</span>greater<span class="token punctuation">)</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vim-vuepress/algorithm/D1.html" class="prev">
+        数组和链表、基本的排序
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/vim-vuepress/assets/js/app.06a9a5ae.js" defer></script><script src="/vim-vuepress/assets/js/2.733019b2.js" defer></script><script src="/vim-vuepress/assets/js/11.9f9e7283.js" defer></script>
+  </body>
+</html>

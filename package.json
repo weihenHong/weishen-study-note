@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/weihenHong/vim-vuepress#readme",
   "devDependencies": {
-    "vuepress": "^1.9.9"
+    "vuepress": "^1.9.7"
   }
 }

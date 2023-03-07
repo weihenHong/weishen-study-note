@@ -1,5 +1,5 @@
 {
-  "name": "vim-vuepress",
+  "name": "weishen-study-note",
   "version": "1.0.0",
   "description": "vim-study",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/weihenHong/vim-vuepress.git"
+    "url": "git+https://github.com/weihenHong/weishen-study-note.git"
   },
   "author": "weishenHong",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/weihenHong/vim-vuepress/issues"
+    "url": "https://github.com/weihenHong/weishen-study-note/issues"
   },
-  "homepage": "https://github.com/weihenHong/vim-vuepress#readme",
+  "homepage": "https://github.com/weihenHong/weishen-study-note#readme",
   "devDependencies": {
     "vuepress": "^1.9.9"
   }

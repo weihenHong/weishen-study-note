@@ -5,7 +5,6 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/img/logo.jpeg' }]
   ],
-  // base:'/vim-vuepress/', 
   dest: './dist',
   themeConfig: {
     nav: [ { text: '算法', link: "/algorithm/"},{ text: "VIM", link: "/VIM/" }],

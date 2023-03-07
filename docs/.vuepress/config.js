@@ -1,7 +1,11 @@
 module.exports = {
-  title: "Vim Study Notes",
+  title: "Study Notes",
   description: "Just playing around",
-  base:'/vim-vuepress/', 
+  base: '/weishen-study-note/',
+  head: [
+    ['link', { rel: 'icon', href: '/img/logo.jpeg' }]
+  ],
+  // base:'/vim-vuepress/', 
   dest: './dist',
   themeConfig: {
     nav: [ { text: '算法', link: "/algorithm/"},{ text: "VIM", link: "/VIM/" }],

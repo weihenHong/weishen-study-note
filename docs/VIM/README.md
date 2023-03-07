@@ -161,16 +161,16 @@ ia 删除当前文本所有 不包含前面和后面空格
 ## D9 更高效的移动 （通过两个已经集成的插件）
 
 - esaymotion （使用后会高亮可移动的位置）
-  - \<leader>\<leader> w  当前光标往后的word首
-  - \<leader>\<leader> e  当前光标往后的word尾
-  - \<leader>\<leader> b  当前光标往前的word首
-  - \<leader>\<leader> w  当前光标往后的word尾
+  - \\<leader\>\\<leader\> w  当前光标往后的word首
+  - \\<leader\>\\<leader\> e  当前光标往后的word尾
+  - \\<leader\>\\<leader\> b  当前光标往前的word首
+  - \\<leader\>\\<leader\> w  当前光标往后的word尾
 
-  - **\<leader>\<leader> h  当前光标往前的word首+尾**
-  - **\<leader>\<leader> l  当前光标往后的word首+尾**
+  - **\\<leader\>\\<leader\> h  当前光标往前的word首+尾**
+  - **\\<leader\>\\<leader\> l  当前光标往后的word首+尾**
 
-  - \<leader>\<leader> j  当前光标往后的行首
-  - \<leader>\<leader> k  当前光标往前的行首
+  - \\<leader\>\\<leader\> j  当前光标往后的行首
+  - \\<leader\>\\<leader\> k  当前光标往前的行首
 
 - sneak （通过两个字符全局搜索）
   - s + 2个字符 （改键后使用 f | F ）
@@ -284,7 +284,7 @@ ia 删除当前文本所有 不包含前面和后面空格
 - dap/dip 基于段落的方式 （函数内如果空行，则不会选中所有内容）
 - dal 基于 vim-indent-object
 - V$%d 打开可视化行模式移动到行尾部然后匹配括号
-  - 优化 使用配置 (<leader> d f)
+  - 优化 使用配置 (\<leader\> d f)
   - 参数格式化后换行  可以配置 ddf 等 自行组合配置
 
 ## D17 掌握宏
@@ -353,7 +353,7 @@ ia 删除当前文本所有 不包含前面和后面空格
   - 使用插件 file Utils
 - 创建文件夹
   - A 在files explorer新建 改键
-  - \<leader> + n + d 在编辑区域直接新建 配置通过vim调用vscode命令
+  - \\<leader\> + n + d 在编辑区域直接新建 配置通过vim调用vscode命令
 
 ## Vscode02 操作多个vscode窗口
 
@@ -400,17 +400,17 @@ ia 删除当前文本所有 不包含前面和后面空格
 ## Vscode06  GIT
 
 - 打开面板
-  - \<leader> + g + g  （vim改键后）
+  - \\<leader\> + g + g  （vim改键后）
 - stage Change
-  - \<leader> + g + s  （vim改键后）
+  - \\<leader\> + g + s  （vim改键后）
 - commit
-  - \<leader> + g + c  （vim改键后）
+  - \\<leader\> + g + c  （vim改键后）
 - diff
-  - \<leader> + g + d + f（vim改键后）
+  - \\<leader\> + g + d + f（vim改键后）
 - unstage Change
-  - \<leader> + g + u  （vim改键后）
+  - \\<leader\> + g + u  （vim改键后）
 - diacard Change
-  - \<leader> + g + c + l  （vim改键后）
+  - \\<leader\> + g + c + l  （vim改键后）
 
 ## Vscode07 snippets (代码片段)
 
@@ -518,4 +518,4 @@ ia 删除当前文本所有 不包含前面和后面空格
 - gu 跳转当前页面上一层
 - gU 当前页面首页
 - i 暂停插件
-- <a-f> 连续点击网页中的链接和按钮
+- \<a-f> 连续点击网页中的链接和按钮

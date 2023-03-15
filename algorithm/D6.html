@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>动态规划 | Study Notes</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/weishen-study-note/img/logo.jpeg">
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/weishen-study-note/assets/css/0.styles.09c7096f.css" as="style"><link rel="preload" href="/weishen-study-note/assets/js/app.27cc7437.js" as="script"><link rel="preload" href="/weishen-study-note/assets/js/2.733019b2.js" as="script"><link rel="preload" href="/weishen-study-note/assets/js/15.e7fa1d55.js" as="script"><link rel="prefetch" href="/weishen-study-note/assets/js/10.b78c3467.js"><link rel="prefetch" href="/weishen-study-note/assets/js/11.070a09bf.js"><link rel="prefetch" href="/weishen-study-note/assets/js/12.405b7b80.js"><link rel="prefetch" href="/weishen-study-note/assets/js/13.99eb2ffe.js"><link rel="prefetch" href="/weishen-study-note/assets/js/14.0ba41e91.js"><link rel="prefetch" href="/weishen-study-note/assets/js/16.dc445c28.js"><link rel="prefetch" href="/weishen-study-note/assets/js/17.20fc27c8.js"><link rel="prefetch" href="/weishen-study-note/assets/js/3.8dfc125c.js"><link rel="prefetch" href="/weishen-study-note/assets/js/4.d12742be.js"><link rel="prefetch" href="/weishen-study-note/assets/js/5.216cae74.js"><link rel="prefetch" href="/weishen-study-note/assets/js/6.2d0a63f8.js"><link rel="prefetch" href="/weishen-study-note/assets/js/7.a6641392.js"><link rel="prefetch" href="/weishen-study-note/assets/js/8.32b93d00.js"><link rel="prefetch" href="/weishen-study-note/assets/js/9.067e31a9.js">
+    <link rel="stylesheet" href="/weishen-study-note/assets/css/0.styles.09c7096f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/weishen-study-note/" class="home-link router-link-active"><!----> <span class="site-name">Study Notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/weishen-study-note/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/weishen-study-note/VIM/" class="nav-link">
+  VIM
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/weishen-study-note/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/weishen-study-note/VIM/" class="nav-link">
+  VIM
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/weishen-study-note/algorithm/D1.html" class="sidebar-link">数组和链表、基本的排序</a></li><li><a href="/weishen-study-note/algorithm/D2.html" class="sidebar-link">快速排序、归并排序</a></li><li><a href="/weishen-study-note/algorithm/D3.html" class="sidebar-link">栈和队列</a></li><li><a href="/weishen-study-note/algorithm/D4.html" class="sidebar-link">树、堆</a></li><li><a href="/weishen-study-note/algorithm/D5.html" class="sidebar-link">图、广度优先和深度优先</a></li><li><a href="/weishen-study-note/algorithm/D6.html" aria-current="page" class="active sidebar-link">动态规划</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/weishen-study-note/algorithm/D6.html#求最少硬币数量问题" class="sidebar-link">求最少硬币数量问题</a></li><li class="sidebar-sub-header"><a href="/weishen-study-note/algorithm/D6.html#_01背包问题" class="sidebar-link">01背包问题</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="动态规划"><a href="#动态规划" class="header-anchor">#</a> 动态规划</h1> <p>动态规划是一种将一个大问题拆分成小问题，逐步求解的算法思想.</p> <blockquote><p>动态规划五部曲：
+1、dp数组以及下标的含义
+2、递推公式
+3、dp数组如何初始化
+4、遍历顺序
+* 打印dp数组（debug）</p></blockquote> <h2 id="求最少硬币数量问题"><a href="#求最少硬币数量问题" class="header-anchor">#</a> 求最少硬币数量问题</h2> <p>目标是找到最少的硬币数量来凑出一个给定的金额</p> <p>思路：
+在最少硬币数量问题中，我们可以将问题拆分成一个个小问题，逐步求解，最终得到最少的硬币数量方案。
+我们可以使用一个数组 dp 来记录求解过程中的中间结果，其中 dp[i] 表示凑出金额 i 需要的最少硬币数量。对于一个金额为 i 的问题，我们可以考虑使用一枚硬币 coin 来凑出金额 i，这样就可以将问题拆分成金额为 i-coin 的子问题，也就是：dp[i] = dp[i-coin] + 1
+实现：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">coinChange</span><span class="token punctuation">(</span><span class="token parameter">coins<span class="token punctuation">,</span> amount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 创建dp数组，初始值为无限大</span>
+  <span class="token keyword">const</span> dp <span class="token operator">=</span> <span class="token function">Array</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token number">Infinity</span><span class="token punctuation">)</span> 
+  <span class="token comment">// 金额为0时，需要0个硬币</span>
+  dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token comment">// 依次枚举1 ---&gt; amount 需要用到的硬币</span>
+  <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> amount<span class="token punctuation">,</span> i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 枚举每个硬币面值，和这个硬币面值数量为1情况</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> coins<span class="token punctuation">.</span>length<span class="token punctuation">,</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 如果金额小于硬币面值，并且当前硬币面值数量为1的方案已经算出来了</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&gt;=</span> coins<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> coins<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token number">Infinity</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 根据状态转移方程dp[i] = min(dp[i], dp[i-j]+1)来更新dp[i]的值。</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> coins<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+   <span class="token comment">// 如果dp[amount]仍然为Infinity，说明无法凑出金额amount</span>
+  <span class="token comment">// 否则，返回dp[amount]表示凑出金额amount所需的最少硬币数</span>
+  <span class="token keyword">return</span> dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token number">Infinity</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">:</span> dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_01背包问题"><a href="#_01背包问题" class="header-anchor">#</a> 01背包问题</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/weishen-study-note/algorithm/D5.html" class="prev">
+        图、广度优先和深度优先
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/weishen-study-note/assets/js/app.27cc7437.js" defer></script><script src="/weishen-study-note/assets/js/2.733019b2.js" defer></script><script src="/weishen-study-note/assets/js/15.e7fa1d55.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>栈和队列 | Study Notes</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/weishen-study-note/img/logo.jpeg">
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/weishen-study-note/assets/css/0.styles.09c7096f.css" as="style"><link rel="preload" href="/weishen-study-note/assets/js/app.27cc7437.js" as="script"><link rel="preload" href="/weishen-study-note/assets/js/2.733019b2.js" as="script"><link rel="preload" href="/weishen-study-note/assets/js/12.405b7b80.js" as="script"><link rel="prefetch" href="/weishen-study-note/assets/js/10.b78c3467.js"><link rel="prefetch" href="/weishen-study-note/assets/js/11.070a09bf.js"><link rel="prefetch" href="/weishen-study-note/assets/js/13.99eb2ffe.js"><link rel="prefetch" href="/weishen-study-note/assets/js/14.0ba41e91.js"><link rel="prefetch" href="/weishen-study-note/assets/js/15.e7fa1d55.js"><link rel="prefetch" href="/weishen-study-note/assets/js/16.dc445c28.js"><link rel="prefetch" href="/weishen-study-note/assets/js/17.20fc27c8.js"><link rel="prefetch" href="/weishen-study-note/assets/js/3.8dfc125c.js"><link rel="prefetch" href="/weishen-study-note/assets/js/4.d12742be.js"><link rel="prefetch" href="/weishen-study-note/assets/js/5.216cae74.js"><link rel="prefetch" href="/weishen-study-note/assets/js/6.2d0a63f8.js"><link rel="prefetch" href="/weishen-study-note/assets/js/7.a6641392.js"><link rel="prefetch" href="/weishen-study-note/assets/js/8.32b93d00.js"><link rel="prefetch" href="/weishen-study-note/assets/js/9.067e31a9.js">
+    <link rel="stylesheet" href="/weishen-study-note/assets/css/0.styles.09c7096f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/weishen-study-note/" class="home-link router-link-active"><!----> <span class="site-name">Study Notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/weishen-study-note/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/weishen-study-note/VIM/" class="nav-link">
+  VIM
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/weishen-study-note/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/weishen-study-note/VIM/" class="nav-link">
+  VIM
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/weishen-study-note/algorithm/D1.html" class="sidebar-link">数组和链表、基本的排序</a></li><li><a href="/weishen-study-note/algorithm/D2.html" class="sidebar-link">快速排序、归并排序</a></li><li><a href="/weishen-study-note/algorithm/D3.html" aria-current="page" class="active sidebar-link">栈和队列</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/weishen-study-note/algorithm/D3.html#栈" class="sidebar-link">栈</a></li><li class="sidebar-sub-header"><a href="/weishen-study-note/algorithm/D3.html#队列" class="sidebar-link">队列</a></li></ul></li><li><a href="/weishen-study-note/algorithm/D4.html" class="sidebar-link">树、堆</a></li><li><a href="/weishen-study-note/algorithm/D5.html" class="sidebar-link">图、广度优先和深度优先</a></li><li><a href="/weishen-study-note/algorithm/D6.html" class="sidebar-link">动态规划</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="栈和队列"><a href="#栈和队列" class="header-anchor">#</a> 栈和队列</h1> <h2 id="栈"><a href="#栈" class="header-anchor">#</a> 栈</h2> <p>栈是一种遵从后进先出（LIFO）原则的有序集合</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">Stack</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">push</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">pop</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 返回栈顶元素</span>
+  <span class="token function">peek</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>item<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>item<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="队列"><a href="#队列" class="header-anchor">#</a> 队列</h2> <p>队列是一种遵从 FIFO 先进先出的有序集合</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">Queue</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// push</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// shift</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="优先队列"><a href="#优先队列" class="header-anchor">#</a> 优先队列</h3> <p>加入队列的元素有优先级，需要根据优先级选择入队的位置</p> <h3 id="循环队列"><a href="#循环队列" class="header-anchor">#</a> 循环队列</h3> <p>击鼓传花的实现，在 dequeue 之后继续 enqueue 到队列尾部</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/weishen-study-note/algorithm/D2.html" class="prev">
+        快速排序、归并排序
+      </a></span> <span class="next"><a href="/weishen-study-note/algorithm/D4.html">
+        树、堆
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/weishen-study-note/assets/js/app.27cc7437.js" defer></script><script src="/weishen-study-note/assets/js/2.733019b2.js" defer></script><script src="/weishen-study-note/assets/js/12.405b7b80.js" defer></script>
+  </body>
+</html>

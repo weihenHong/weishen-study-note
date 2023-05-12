@@ -3,7 +3,7 @@ module.exports = {
   description: "Just playing around",
   base: '/weishen-study-note/',
   head: [
-    ['link', { rel: 'icon', href: 'https://gitee.com/hong_weishen/gitee-chart-bed/raw/master/202305120941436.png' }]
+    ['link', { rel: 'icon', href: '/img/logo.jpg' }]
   ],
   dest: './dist',
   themeConfig: {

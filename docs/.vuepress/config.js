@@ -3,7 +3,7 @@ module.exports = {
   description: "Just playing around",
   base: '/weishen-study-note/',
   head: [
-    ['link', { rel: 'icon', href: '/img/logo.jpeg' }]
+    ['link', { rel: 'icon', href: '/img/logo.jpg' }]
   ],
   dest: './dist',
   themeConfig: {

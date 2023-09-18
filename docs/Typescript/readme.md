@@ -79,3 +79,81 @@ class B extends A {
 上面示例中，抽象类`A`定义了抽象属性`foo`，子类`B`必须实现这个属性，否则会报错。
 
 总之，抽象类的作用是，确保各种相关的子类都拥有跟基类相同的接口，可以看作是模板。其中的抽象成员都是必须由子类实现的成员，非抽象成员则表示基类已经实现的、由所有子类共享的成员。
+
+## declare 关键字
+
+### declare module
+
+某些第三方模块，原始作者没有提供接口类型，这时可以在自己的脚本顶部加上下面一行命令。
+
+```typescript
+declare module "模块名";
+
+// 例子
+declare module "hot-new-module";
+```
+
+加上上面的命令以后，外部模块即使没有类型声明，也可以通过编译。但是，从该模块输入的所有接口都将为`any`类型。
+
+declare module 描述的模块名可以使用通配符。
+
+### declare global
+
+如果要为 JavaScript 引擎的原生对象添加属性和方法，可以使用`declare global {}`语法。
+
+```typescript
+export {};
+
+declare global {
+  interface String {
+    toSmallString(): string;
+  }
+}
+
+String.prototype.toSmallString = ():string => {
+  // 具体实现
+  return '';
+};
+```
+
+上面示例中，为 JavaScript 原生的`String`对象添加了`toSmallString()`方法。declare global 给出这个新增方法的类型描述。
+
+这个示例第一行的空导出语句`export {}`，作用是强制编译器将这个脚本当作模块处理。这是因为`declare global`必须用在模块里面。
+
+### declare module 用于类型声明文件
+
+我们可以为每个模块脚本，定义一个`.d.ts`文件，把该脚本用到的类型定义都放在这个文件里面。但是，更方便的做法是为整个项目，定义一个大的`.d.ts`文件，在这个文件里面使用`declare module`定义每个模块脚本的类型。
+
+下面的示例是`node.d.ts`文件的一部分。
+
+```typescript
+declare module "url" {
+  export interface Url {
+    protocol?: string;
+    hostname?: string;
+    pathname?: string;
+  }
+
+  export function parse(
+    urlStr: string,
+    parseQueryString?,
+    slashesDenoteHost?
+  ): Url;
+}
+
+declare module "path" {
+  export function normalize(p: string): string;
+  export function join(...paths: any[]): string;
+  export var sep: string;
+}
+```
+
+上面示例中，`url`和`path`都是单独的模块脚本，但是它们的类型都定义在`node.d.ts`这个文件里面。
+
+使用时，自己的脚本使用三斜杠命令，加载这个类型声明文件。
+
+```typescript
+/// <reference path="node.d.ts"/>
+```
+
+如果没有上面这一行命令，自己的脚本使用外部模块时，就需要在脚本里面使用 declare 命令单独给出外部模块的类型。

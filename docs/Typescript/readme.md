@@ -205,3 +205,35 @@ declare module '模块名';
 ```
 
 有了上面的命令，指定模块的所有接口都将视为any类型。
+
+## extends...?: 条件运算符
+
+TypeScript 提供类似 JavaScript 的?:运算符这样的三元运算符，但多出了一个extends关键字。
+
+条件运算符extends...?:可以根据当前类型是否符合某种条件，返回不同的类型。
+
+```ts
+// true
+type T = 1 extends number ? true : false;
+```
+
+**如果需要判断的类型是一个联合类型，那么条件运算符会展开这个联合类型。**
+
+```ts
+(A|B) extends U ? X : Y
+
+// 等同于
+
+(A extends U ? X : Y) |
+(B extends U ? X : Y)
+```
+
+如果不希望联合类型被条件运算符展开，可以把extends两侧的操作数都放在方括号里面。
+
+```ts
+type ToArray<Type> =
+  [Type] extends [any] ? Type[] : never;
+
+// (string | number)[]
+type T = ToArray<string|number>;
+```
